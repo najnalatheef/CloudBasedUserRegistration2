@@ -1,0 +1,4 @@
+com\example\account\entities\Account.class
+com\example\account\AccountServiceApplication.class
+com\example\account\config\Main.class
+com\example\account\repositories\AccountRepository.class
