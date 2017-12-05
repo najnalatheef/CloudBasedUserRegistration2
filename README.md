@@ -35,3 +35,5 @@ The redirect Uri must be the same in every step of the authorization code login.
 
 # Request samples
 There're pics of the rest client request in order to test the app.
+
+#As a Rule of thumb, the endpoints which needs the client id and the client secret are most likely prone to understand the format #client_id:client_secret@http://server:port/ rather than having those being handed over the server through params (gotta check why tho).
