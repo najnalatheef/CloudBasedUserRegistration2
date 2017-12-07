@@ -6,7 +6,7 @@ Spring Cloud and Eureka popurrí of technologies
 The app is just a basic user registration in order to login (with Oauth2) so we can access every endpoint of the app. All of this is for testing purposes of the Spring Cloud and Netflix technologies. All here is for learning purposes only.
 
 # Content
-1 - Spring Cloud and Netflix. 2 - Eureka (microservice register). 3 - Zuul (proxy gateway). 4 - Hystrix (circuit breaker). 5 - Ribbon (client tier load balancer). 6 - Spring security Oauth2. 7 - Spring Data REST and JPA.
+1 - Spring Cloud and Netflix. 2 - Eureka (microservice register). 3 - Zuul (proxy gateway). 4 - Hystrix (circuit breaker). 5 - Ribbon (client tier load balancer). 6 - Spring security Oauth2. 7 - Spring Data REST and JPA. 8 - Hystrix Dashboard.
 
 # Details
   # Eureka:
