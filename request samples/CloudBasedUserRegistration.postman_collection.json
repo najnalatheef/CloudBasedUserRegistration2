@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "CloudBasedUserRegistration",
-		"_postman_id": "641a1f8c-0442-2971-ca62-832820672d46",
+		"_postman_id": "da286aae-7c74-47d3-fd44-0811932f1946",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -10,6 +10,7 @@
 		{
 			"name": "http://localhost:4444/auth/clients",
 			"request": {
+				"url": "http://localhost:4444/auth/clients",
 				"method": "POST",
 				"header": [
 					{
@@ -25,23 +26,25 @@
 					"mode": "raw",
 					"raw": "{\n\t\"clientId\": \"gateway\",\n\t\"scopes\": \"FOO, YOO\",\n\t\"authorities\": \"FOO_READ, FOO_WRITE\",\n\t\"authorizedGrantTypes\": \"implicit, refresh_token, password, authorization_code, client_credentials\",\n\t\"isAutoApprove\": true,\n\t\"resourceId\": \"FOO, DOO, YOO, account-resource\",\n\t\"accessTokenValiditySeconds\": 500000,\n    \"refreshTokenValiditySeconds\": 1000000,\n    \"clientSecret\": \"1234\",\n    \"redirectUri\": \"http://example.com\"\n}"
 				},
-				"url": "http://localhost:4444/auth/clients"
+				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "gateway:1234@localhost:4444/auth/oauth/token",
+			"name": "localhost:4444/auth/oauth/token",
 			"request": {
+				"url": "http://localhost:4444/auth/oauth/token",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiRE9PIiwiRk9PIiwiWU9PIiwiYWNjb3VudC1yZXNvdXJjZSJdLCJ1c2VyX25hbWUiOiJtYWluIiwic2NvcGUiOlsiRk9PIiwiWU9PIl0sImV4cCI6MTUwNzgyNzQwMiwiYXV0aG9yaXRpZXMiOlsiRk9PX1JFQUQsIEZPT19SRUFEX1VTRVIiXSwianRpIjoiYTg2YmM5YTEtNTI3Mi00ZmVjLTk4MmMtOGU1NTQ4Mzc2NzU1IiwiY2xpZW50X2lkIjoiZ2F0ZXdheSJ9.WI8cSsU8iodmfa-n1HYTMtMXGGPcN09JL5D-VpfgCQtX5Vk4VlGxLqLB0XNrbKG5IINM3IEvPeM4aRapxGKwG_J6xLJphP7LYvTERTadSU0xAIvyT8lsz4exPSfiV2lxoG5DvJBN_wpfx1UbITPVBcgAdq6OcAfUopc0FpZPeKVUlUJNhZnq2m4vWRmpknkQPMF9S8y-Hr1Vw2KdEcjeo0Plzpxe_Tyis7RIOzouut4E5SSFltFj0LPHNstbwEpSy4We8gjwfX-zBq7CDjsbz-NqwZkjngSqmHCwj-edXvnnx6v5SIwQQb9Cb3-BOemuI0Bkr9YxosDYB2EwTE023wCw6dMHBrydDkm6oefuqyCBDVGD67vUWH28-MmWWf8cfYnK1bEcFocMqIA072NNfJcSxJxOJP-Jc-NqGw",
-						"disabled": true
+						"value": "Basic Z2F0ZXdheToxMjM0",
+						"description": ""
 					}
 				],
 				"body": {
@@ -100,28 +103,13 @@
 						}
 					]
 				},
-				"url": "gateway:1234@localhost:4444/auth/oauth/token"
+				"description": ""
 			},
 			"response": []
 		},
 		{
 			"name": "http://localhost:4444/accounts/search/findByUsername?username=Antonio",
 			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiRE9PIiwiRk9PIiwiWU9PIiwiYWNjb3VudC1yZXNvdXJjZSJdLCJleHAiOjE1MTI2NzM1MDUsInVzZXJfbmFtZSI6Im1hcGFleiIsImp0aSI6ImIzYWZmZTM2LWNmZjMtNDRjMS1iZDRhLTRjODA3ZGY0ODdmYyIsImNsaWVudF9pZCI6ImdhdGV3YXkiLCJzY29wZSI6WyJGT08iLCJZT08iXX0.sCd_8awwoed4gsbf9R2oHN0enHVZ_OSUSMxT-Rkh6J9BZ46Srja8Ze96evN-VvEpvlMGn5UKh_5gAl8Ypme-szFy7QL2VuT5_fYHAYLDPngOoQBDTWGV1fB0fCFDQtt0etC3obyAQR24UN7BKZbBpdmvEzxxaWKVMwKPq76BqxSY5Hnq8yvf6dSAfX3Oh5v829EJ8KQw49BcqDH5bm0pcmtN4KPGCfzeZ2rn1w0owKslHyxUJKKbMEM3FE2vHZnIZFuZnUobXIcnwOepVW9Q23wy9RBN17lBnyWq1LAICX9jiYst9pxx1MSQKbSsZuAEOEpY4_mgB6dIxw9_8ojg4A"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"username\": \"mapaez\",\n\t\"password\": \"1234\",\n\t\"authorities\": \"ROLE_ADMIN\",\n\t\"name\": \"manuel\"\n}"
-				},
 				"url": {
 					"raw": "http://localhost:4444/accounts/search/findByUsername?username=Antonio",
 					"protocol": "http",
@@ -138,34 +126,57 @@
 						{
 							"key": "username",
 							"value": "Antonio",
-							"equals": true
+							"equals": true,
+							"description": ""
 						}
-					]
-				}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiRE9PIiwiRk9PIiwiWU9PIiwiYWNjb3VudC1yZXNvdXJjZSJdLCJ1c2VyX25hbWUiOiJtYXBhZXoiLCJzY29wZSI6WyJGT08iLCJZT08iXSwiZXhwIjoxNTE5MzA5NDc4LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOLCBST0xFX1VTRVIsIEZPT19SRUFEX1VTRVIiXSwianRpIjoiY2JhNWViMjAtMDFjYy00ODVlLWExNmUtM2ExYjczNThmODVjIiwiY2xpZW50X2lkIjoiZ2F0ZXdheSJ9.gYl5aEKN4TfgprZULxRIIBrVehhCJKxa25ZNaevsVkgDev6_uMHbL4isJqNXNMDQIGS9R9kUgWr0nW1V7typS6tWsKU60s48O8mOLqoAPEMQoKhCDrOeoNCKq7oeytlf4NW8cYwgFs7kuOt2zpi-jGhED9cNMB3jM9QinlaJ5_MeRlbm6jS_rv8zRJn1hLsCv0JYWAAxhsDL46lX6RyrDADs-8DTkDzzVjlIY0hBj7ybS_0J-ptvwPwn6bg_sZTY8vtF1vhOvv-u-3YoGIrf9iRsDDAqZIXhkfQJCkEWFlQceO9-i6JwZ3RoaBVvvE15JRUF602NyPggbNO-bMVjaw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"mapaez\",\n\t\"password\": \"1234\",\n\t\"authorities\": \"ROLE_ADMIN\",\n\t\"name\": \"manuel\"\n}"
+				},
+				"description": ""
 			},
 			"response": []
 		},
 		{
 			"name": "http://localhost:4444/auth/accounts",
 			"request": {
-				"method": "POST",
+				"url": "http://localhost:4444/auth/accounts",
+				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json"
+						"value": "application/json",
+						"description": ""
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"username\": \"mapaez\",\n\t\"password\": \"1234\",\n\t\"isActive\": true\n}"
 				},
-				"url": "http://localhost:4444/auth/accounts"
+				"description": ""
 			},
 			"response": []
 		},
 		{
 			"name": "http://localhost:4444/auth/authorities",
 			"request": {
+				"url": "http://localhost:4444/auth/authorities",
 				"method": "POST",
 				"header": [
 					{
@@ -177,13 +188,14 @@
 					"mode": "raw",
 					"raw": "{\n\t\"authority\": \"ROLE_ADMIN, ROLE_USER, FOO_READ_USER\",\n\t\"username\": \"mapaez\",\n\t\"account\": \"http://localhost:9999/auth/accounts/1\"\n}"
 				},
-				"url": "http://localhost:4444/auth/authorities"
+				"description": ""
 			},
 			"response": []
 		},
 		{
 			"name": "http://localhost:4444/auth/authorities/1",
 			"request": {
+				"url": "http://localhost:4444/auth/authorities/1",
 				"method": "POST",
 				"header": [
 					{
@@ -195,13 +207,14 @@
 					"mode": "raw",
 					"raw": "{\n\t\"username\": \"main\",\n\t\"authority\": \"FOO_READ_MAIN, FOO_READ_USER, FOO_READ\",\n\t\"account\": \"http://192.168.1.8:8888/tests/1\"\n}"
 				},
-				"url": "http://localhost:4444/auth/authorities/1"
+				"description": ""
 			},
 			"response": []
 		},
 		{
 			"name": "http://localhost:4444/accounts",
 			"request": {
+				"url": "http://localhost:4444/accounts",
 				"method": "POST",
 				"header": [
 					{
@@ -218,26 +231,28 @@
 					"mode": "raw",
 					"raw": "{\n\t\"username\": \"Antonio\",\n\t\"password\": \"1234\",\n\t\"authorities\": \"ROLE_ADMIN\",\n\t\"name\": \"lol\"\n}"
 				},
-				"url": "http://localhost:4444/accounts"
+				"description": ""
 			},
 			"response": []
 		},
 		{
 			"name": "http://localhost:4444/auth/accounts/2",
 			"request": {
+				"url": "http://localhost:4444/auth/accounts/2",
 				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "raw",
 					"raw": ""
 				},
-				"url": "http://localhost:4444/auth/accounts/2"
+				"description": ""
 			},
 			"response": []
 		},
 		{
 			"name": "http://localhost:4444/auth/oauth/token",
 			"request": {
+				"url": "http://localhost:4444/auth/oauth/token",
 				"method": "POST",
 				"header": [
 					{
@@ -282,28 +297,13 @@
 						}
 					]
 				},
-				"url": "http://localhost:4444/auth/oauth/token"
+				"description": ""
 			},
 			"response": []
 		},
 		{
 			"name": "http://localhost:4444/accounts/search/findByUsername?username=mapaez",
 			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiRE9PIiwiRk9PIiwiWU9PIiwiYWNjb3VudC1yZXNvdXJjZSJdLCJ1c2VyX25hbWUiOiJtYXBhZXoiLCJzY29wZSI6WyJGT08iLCJZT08iXSwiZXhwIjoxNTEyNzU4NDUwLCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOLCBST0xFX1VTRVIsIEZPT19SRUFEX1VTRVIiXSwianRpIjoiNDg3NDE0MjEtN2IwMS00NmM2LTk0NDctZmVkNTQxZGUyYmYwIiwiY2xpZW50X2lkIjoiZ2F0ZXdheSJ9.jxi7Pvc0YqaLkKr2uaajMO8HR43KZlo0-6XNAotCNJU0CaEjBgoS2Rsw6xcm3xpRW2Mc-ve_QXbPP0-zxq5mdRYLwue3HygnT3x0RkwT9BJfpt8hiosVh62uveuSCJ91KvkABnn23srMS9ipp7XNXS4-OgWYWJzGfbwbwG9S_x7iPdpBzY6hOFoyesUKrJuEv7CTGzJm0T5kC4XsJwoPi-irNMjyWyKhnWURY_7-IppoDzvrC4lXxdtuZKdzCdwsJ_K02Q7T-vHrq6iteUVU2u7Hb7Aij69ZLOqWJ7jwWlkQKne7EMC_XVywEbfpLlSTQMKrBEocPHpkJBWKgIjckA"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"name\": \"manuel\",\n\t\"username\": \"mapaez\",\n\t\"isActive\": true,\n\t\"password\": 1234,\n\t\"authorities\": \"ROLE_ADMIN\"\n}"
-				},
 				"url": {
 					"raw": "http://localhost:4444/accounts/search/findByUsername?username=mapaez",
 					"protocol": "http",
@@ -322,7 +322,23 @@
 							"value": "mapaez",
 							"equals": true
 						}
-					]
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiRE9PIiwiRk9PIiwiWU9PIiwiYWNjb3VudC1yZXNvdXJjZSJdLCJ1c2VyX25hbWUiOiJtYXBhZXoiLCJzY29wZSI6WyJGT08iLCJZT08iXSwiZXhwIjoxNTEyNzU4NDUwLCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOLCBST0xFX1VTRVIsIEZPT19SRUFEX1VTRVIiXSwianRpIjoiNDg3NDE0MjEtN2IwMS00NmM2LTk0NDctZmVkNTQxZGUyYmYwIiwiY2xpZW50X2lkIjoiZ2F0ZXdheSJ9.jxi7Pvc0YqaLkKr2uaajMO8HR43KZlo0-6XNAotCNJU0CaEjBgoS2Rsw6xcm3xpRW2Mc-ve_QXbPP0-zxq5mdRYLwue3HygnT3x0RkwT9BJfpt8hiosVh62uveuSCJ91KvkABnn23srMS9ipp7XNXS4-OgWYWJzGfbwbwG9S_x7iPdpBzY6hOFoyesUKrJuEv7CTGzJm0T5kC4XsJwoPi-irNMjyWyKhnWURY_7-IppoDzvrC4lXxdtuZKdzCdwsJ_K02Q7T-vHrq6iteUVU2u7Hb7Aij69ZLOqWJ7jwWlkQKne7EMC_XVywEbfpLlSTQMKrBEocPHpkJBWKgIjckA"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"manuel\",\n\t\"username\": \"mapaez\",\n\t\"isActive\": true,\n\t\"password\": 1234,\n\t\"authorities\": \"ROLE_ADMIN\"\n}"
 				},
 				"description": "This endpoint is role based protected. Ideal for testing roles"
 			},
@@ -331,11 +347,18 @@
 		{
 			"name": "http://localhost:4444/auth/oauth/token",
 			"request": {
+				"url": "http://localhost:4444/auth/oauth/token",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic Z2F0ZXdheToxMjM0",
+						"description": ""
 					}
 				],
 				"body": {
@@ -348,12 +371,11 @@
 						},
 						{
 							"key": "refresh_token",
-							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiRE9PIiwiRk9PIiwiWU9PIiwiYWNjb3VudC1yZXNvdXJjZSJdLCJ1c2VyX25hbWUiOiJtYXBhZXoiLCJzY29wZSI6WyJGT08iLCJZT08iXSwiYXRpIjoiMDQwZDgxMjYtZDI4Yi00MTgwLWIyNGYtMzliNjUzMjU5YTA0IiwiZXhwIjoxNTEzMjU4NjI0LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOLCBST0xFX1VTRVIsIEZPT19SRUFEX1VTRVIiXSwianRpIjoiMTY5ZWZmMWEtNDFiMy00YmM1LThiNTAtNWFmZWI0MzQ3YjNmIiwiY2xpZW50X2lkIjoiZ2F0ZXdheSJ9.eaoJsZTUI0aHcp5-Wh4NCpcC_6CkjQD4SJgQvO8w2OEbjBJIx4t6JQr3g-masQWxPPbND4_a4zvExlBVTKV37_QxZ9iFDMEL6iBRw4ROg7M2C1IRi6jKy_3ZHWCwHgEm07uwC8DvRPXpUmLbFR5E6HfSw1-eV8zZMSpUKOE7b-H6_Oizcy-CGHvDIYZhDm6HKMJUSq1Hgar9ZNBqQ9I3cigxy8ELsT4ULZX1jGpNVXbzvdKn1ItRkiV4r-fNRArxaZytzWO8xPnbmAGdV0KIRyd6EXjxgoKWZvZDOgwDbRKWP_QsfTYPWCOC303bqpZlCioy32sQcLKNlCtXGdc9WA",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiRE9PIiwiRk9PIiwiWU9PIiwiYWNjb3VudC1yZXNvdXJjZSJdLCJ1c2VyX25hbWUiOiJtYXBhZXoiLCJzY29wZSI6WyJGT08iLCJZT08iXSwiYXRpIjoiOGY0YmYwNTItZmY1Ni00MzNjLTg2NWMtN2M4NTQwOGYxYmEwIiwiZXhwIjoxNTE5ODA5MjQ4LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOLCBST0xFX1VTRVIsIEZPT19SRUFEX1VTRVIiXSwianRpIjoiOGZhMjk4NzYtNTNkZC00MDBkLWI4YTUtY2FjMzllN2Y0ZGE5IiwiY2xpZW50X2lkIjoiZ2F0ZXdheSJ9.u2-xAeC4uGEwUwKhP_C0MmqyK2PeLF4RXDF6eyVwvaSuz_VksKWUdrA9A3y36o7SQUcCIEc65Qe4FPwWj1Amazg8bSoLozPa-_qSBTIyLYlR6eSJJ3Rj2ENUYQ0XbqXjhQ4gEb40Ymp59UIkZ2RiSWYU7ydS6qQ45M7N3Ww9tcV-XGtqV5ZOMf70WfdsSl-qX1q4WenrHmGt-nc0WCzTruQV_IuiuY2SnsrMp7wpLWLArGsN9znJy_0yu4PWhj2y2jwgVdiYTFYp3ons2OEIxu2Q-376oFQXbJ_-L8bVrOxj1kxQ4l8z7SL2KKCimCt0UOMjAEuwWn5N-4gF9ini2A",
 							"type": "text"
 						}
 					]
 				},
-				"url": "http://localhost:4444/auth/oauth/token",
 				"description": "Refresh token"
 			},
 			"response": []
